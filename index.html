@@ -49,7 +49,7 @@
 
     <!--footer-->
     <footer>
-        <div class="container">
+        <div >
 
         </div>
     </footer>
@@ -66,7 +66,8 @@
 
     <script>
 
-        
+        const div=document.getElementsByClassName("container");
+        const row=document.getElementsByClassName("row");
 
 fetch('https://api.pexels.com/v1/search?query=narture', {
             headers: {
@@ -76,24 +77,33 @@ fetch('https://api.pexels.com/v1/search?query=narture', {
         })
 
         
-        
-            .then(response => response.json().then(body => { console.log(body) }))
+        .then(response => response.json().then(body => { 
+
+            const obj=body.photos
+               
+console.log(obj) }))
     
+function caricaDati(photo){
+    fetch("https://api.pexels.com/photo")
+    .then(response => response.json())
+    .then(body=>{
+        console.log(data)
+        generaCard(body.photos)
+    })
+}
+
+function generaCard(photos){
+    photos.array.forEach(element => {
+        const card= document.createElement(div)
+        card.className = ""
+        card.backgroundimage= `url(${photo})`
+        container.appendChild(card)
+    });
+}
             
 
-        /*const searchResults =body.photos.map((resul) => {
-            return/*html*/ `
-        <div class='col col-4'><div class="card" >
-  <img src=".${photo.id}" class="card-img-top" alt="...">
-  
-</div></div>
-    `;
-    
-        /*})
-
-
-
-    document.querySelector("container").innerHTML += searchResults.join("")*/
+        
+    document.querySelector("container").innerHTML 
     
                 
 
